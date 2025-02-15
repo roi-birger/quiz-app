@@ -9,11 +9,14 @@
 <body>
     <div class="quiz-container">
         <h1>חידון פסיכולוגיה</h1>
+        <p id="timer">⏳ זמן נותר: <span id="time-left">15</span> שניות</p>
         <div id="question-container">
             <p id="question-text"></p>
             <div id="answers-container"></div>
         </div>
+        <p id="score">💯 ניקוד: <span id="score-value">0</span></p>
         <button id="next-button" disabled>המשך</button>
+        <button id="restart-button" onclick="restartQuiz()">🔄 התחל מחדש</button>
     </div>
 
     <script src="script.js"></script>

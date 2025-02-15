@@ -17,11 +17,12 @@ body {
 
 button {
     padding: 10px;
-    margin-top: 20px;
+    margin-top: 10px;
     background-color: #007bff;
     color: white;
     border: none;
     cursor: pointer;
+    border-radius: 5px;
 }
 
 button:disabled {
@@ -48,4 +49,18 @@ button:disabled {
 .wrong {
     background-color: #dc3545 !important;
     color: white;
+}
+
+#timer {
+    font-size: 18px;
+    color: #ff0000;
+}
+
+#score {
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+#restart-button {
+    background-color: #ff5722;
 }
