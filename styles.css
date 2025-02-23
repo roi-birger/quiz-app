@@ -64,3 +64,29 @@ button:disabled {
 #restart-button {
     background-color: #ff5722;
 }
+
+.homepage {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.course-selection {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.course-selection #course-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.course-selection button {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}

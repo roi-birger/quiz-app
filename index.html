@@ -7,7 +7,15 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="quiz-container">
+    <div class="homepage">
+        <h1>ברוכים הבאים לחידון פסיכולוגיה</h1>
+        <button onclick="startQuiz()">התחל תרגול עכשיו</button>
+    </div>
+    <div class="course-selection" style="display: none;">
+        <h2>בחר קורס</h2>
+        <div id="course-list"></div>
+    </div>
+    <div class="quiz-container" style="display: none;">
         <h1>חידון פסיכולוגיה</h1>
         <p id="timer">⏳ זמן נותר: <span id="time-left">15</span> שניות</p>
         <div id="question-container">

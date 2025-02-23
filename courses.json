@@ -1,0 +1,10 @@
+[
+    {
+        "name": "פסיכולוגיה חברתית",
+        "questionsFile": "social_psychology_questions.json"
+    },
+    {
+        "name": "פסיכולוגיה קוגניטיבית",
+        "questionsFile": "cognitive_psychology_questions.json"
+    }
+]

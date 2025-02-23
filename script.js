@@ -2,28 +2,43 @@ let currentQuestionIndex = 0;
 let score = 0;
 let timeLeft = 15;
 let timerInterval;
+let selectedCourse = null;
+let questions = [];
 
-// **מערך השאלות**
-let questions = [
-    {
-        "שאלה": "במטרה לבסס קשר סיבתי בין משתנים במחקר יש להראות:",
-        "תשובות": [
-            {"תשובה": "קשר (מתאם)", "נכונה": false},
-            {"תשובה": "קדימות בזמן של המשתנה הבלתי תלוי (הסיבה) למשתנה התלוי (התוצאה)", "נכונה": false},
-            {"תשובה": "הפרכת כל הסבר חלופי לתוצאה שהתקבלה", "נכונה": false},
-            {"תשובה": "כל התשובות נכונות", "נכונה": true}
-        ]
-    },
-    {
-        "שאלה": "מה ניתן לומר על ניסוי שדה לעומת ניסוי מעבדה?",
-        "תשובות": [
-            {"תשובה": "בניסוי שדה ניתן לשלוט יותר בקלות במשתנים המתערבים, אך קשה יותר לדמות את המציאות לעומת ניסוי מעבדה", "נכונה": false},
-            {"תשובה": "בניסוי שדה ניתן לדמות בקלות רבה יותר את המציאות, אך קשה יותר לשלוט במשתנים המתערבים לעומת ניסוי מעבדה", "נכונה": true},
-            {"תשובה": "בניסוי שדה אפשר להסיק רק על קשר מתאמי ובניסוי מעבדה אפשר להסיק על קשר סיבתי", "נכונה": false},
-            {"תשובה": "בניסוי שדה אפשר להסיק על קשר סיבתי ובניסוי מעבדה אפשר להסיק רק על קשר מתאמי", "נכונה": false}
-        ]
-    }
-];
+// Function to start the quiz
+function startQuiz() {
+    document.querySelector('.homepage').style.display = 'none';
+    document.querySelector('.course-selection').style.display = 'block';
+    loadCourses();
+}
+
+// Function to load available courses
+function loadCourses() {
+    fetch('courses.json')
+        .then(response => response.json())
+        .then(courses => {
+            const courseList = document.getElementById('course-list');
+            courses.forEach(course => {
+                const button = document.createElement('button');
+                button.innerText = course.name;
+                button.onclick = () => selectCourse(course);
+                courseList.appendChild(button);
+            });
+        });
+}
+
+// Function to select a course
+function selectCourse(course) {
+    selectedCourse = course;
+    fetch(course.questionsFile)
+        .then(response => response.json())
+        .then(data => {
+            questions = data;
+            document.querySelector('.course-selection').style.display = 'none';
+            document.querySelector('.quiz-container').style.display = 'block';
+            showQuestion();
+        });
+}
 
 // **הפעלת השאלה הראשונה**
 showQuestion();
